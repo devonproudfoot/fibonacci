@@ -23,8 +23,7 @@ def recursive_fib(n)
   elsif n == 0
     return 0
   end
-  fib = recursive_fib(n - 1) + recursive_fib(n - 2)
-  return fib
+  return recursive_fib(n - 1) + recursive_fib(n - 2)
 
 end
 
