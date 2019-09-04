@@ -18,13 +18,24 @@ def iterative_fib(n)
 end
 
 def recursive_fib(n)
+  if n == 1
+    return 1
+  elsif n == 0
+    return 0
+  end
+  fib = recursive_fib(n - 1) + recursive_fib(n - 2)
+  return fib
 
 end
 
-puts iterative_fib(9)
+iter = iterative_fib(9)
+recurse = recursive_fib(9)
+if iter == recurse
+  puts 'Equal!'
+end
 
-# num = 35
-# Benchmark.bm do |x|
-#   x.report("recursive_fib") { recursive_fib(num) }
-#   x.report("iterative_fib") { iterative_fib(num) }
-# end
+num = 35
+Benchmark.bm do |x|
+  x.report("recursive_fib") { recursive_fib(num) }
+  x.report("iterative_fib") { iterative_fib(num) }
+end
